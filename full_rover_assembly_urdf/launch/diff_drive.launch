@@ -1,0 +1,42 @@
+<?xml version = "1.0"?>
+<launch>
+<!-- Launch gazebo -->
+<include file="$(find full_rover_assembly_urdf)/launch/gazebo.launch"></include>
+
+<!-- Load joint controller configuration from YAML file to parameter server -->
+<rosparam file="$(find full_rover_assembly_urdf)/config/joint_states.yaml" command="load"/>
+<rosparam file="$(find full_rover_assembly_urdf)/config/diff_drive.yaml" command="load"/>
+
+
+<!-- load the controllers -->
+<node name="diff_controller_spawner" pkg="controller_manager" type="spawner"
+  respawn="true" output="screen" 
+   args="/Diff_Drive/joint_state_controller
+         /Diff_Drive/diff_drive_controller
+        --shutdown-timeout 3"/>
+
+<node name="rqt_robot_steering" pkg="rqt_robot_steering" type="rqt_robot_steering">
+  <param name="default_topic" value="/Diff_Drive/diff_drive_controller/cmd_vel"/> 
+</node>
+<!-- Navsat transform node -->
+  <node pkg="robot_localization" type="navsat_transform_node" name="navsat_transform_node" respawn="true">
+
+    <param name="magnetic_declination_radians" value="0"/>
+
+    <param name="yaw_offset" value="0"/>
+    <param name="broadcast_utm_transform" value="true"/>
+
+    <remap from="/imu/data" to="/imu/data" />
+    <remap from="/gps/fix" to="/gps/fix" />
+    <remap from="/odometry/filtered" to="/odometry/filtered" />
+
+  </node>
+
+
+
+<!-- GPS navigation rviz_satelite configurations -->
+ <node pkg="rostopic" type="rostopic" name="fake_gps_fix" args="pub /gps/fix sensor_msgs/NavSatFix --latch --file=$(find rviz_satellite)/launch/demo.gps" />
+
+    <!-- Start rviz with a pre-configured AerialMap instance. It will use the fake GPS fix from above. -->
+  <node pkg="rviz" type="rviz" name="rviz" args="-d $(find rviz_satellite)/launch/demo.rviz"/>
+</launch>

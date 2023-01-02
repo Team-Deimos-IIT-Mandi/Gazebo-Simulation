@@ -1,0 +1,32 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/anurag/catkin_ws/devel/include/**",
+        "/opt/ros/noetic/include/**",
+        "/home/anurag/catkin_ws/src/beginner_tuts/include/**",
+        "/home/anurag/catkin_ws/src/hector_slam/hector_geotiff/include/**",
+        "/home/anurag/catkin_ws/src/hector_slam/hector_map_tools/include/**",
+        "/home/anurag/catkin_ws/src/hector_slam/hector_mapping/include/**",
+        "/home/anurag/catkin_ws/src/hector_slam/hector_marker_drawing/include/**",
+        "/home/anurag/catkin_ws/src/pid/include/**",
+        "/home/anurag/catkin_ws/src/rf2o_laser_odometry/include/**",
+        "/home/anurag/catkin_ws/src/turtlebot3_simulations/turtlebot3_fake/include/**",
+        "/home/anurag/catkin_ws/src/turtlebot3_simulations/turtlebot3_gazebo/include/**",
+        "/home/anurag/catkin_ws/src/turtlebot3/turtlebot3_slam/include/**",
+        "/home/anurag/catkin_ws/src/wheelchair/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}
