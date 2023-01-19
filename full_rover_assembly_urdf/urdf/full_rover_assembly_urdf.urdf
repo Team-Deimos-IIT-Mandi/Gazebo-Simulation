@@ -4,6 +4,10 @@
      For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
 <robot
   name="full_rover_assembly_urdf">
+
+<xacro:include filename="$(find full_rover_assembly)/urdf/links_joints.xacro"/>
+
+  
   <link
     name="base_rover_1">
     <inertial>
@@ -44,459 +48,76 @@
     </collision>
   </link>
 
-
-  <link
-    name="wheel_1">
-    <inertial>
-      <origin
-        xyz="-0.063397 -4.4964E-15 1.4988E-15"
-        rpy="0 0 0" />
-      <mass
-        value="6.4993" />
-      <inertia
-        ixx="0.062324"
+<m_wheel_link name="wheel_1" origin_xyz="-0.063397 -4.4964E-15 1.4988E-15" ixx="0.062324"
         ixy="4.8469E-07"
         ixz="-1.0587E-06"
         iyy="0.037901"
         iyz="6.9389E-18"
         izz="0.037901" />
-    </inertial>
-    <visual>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://full_rover_assembly_urdf/meshes/wheel_1.STL" />
-      </geometry>
-      <material
-        name="">
-        <color
-          rgba="1 0 0 1" />
-      </material>
-    </visual>
-    <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://full_rover_assembly_urdf/meshes/wheel_1.STL" />
-      </geometry>
-            <surface>
-        <bounce>
-          <restitution_coefficient>0.1</restitution_coefficient>
-          <threshold>0</threshold>
-        </bounce>
-        <contact>
-          <ode>
-            <max_vel>0.2</max_vel>
-          </ode>
-        </contact>
-      </surface>
-    </collision>
-  </link>
-  <joint
-    name="joint_w1"
-    type="continuous">
-    <origin
-      xyz="0.373705519949924 -0.333276944984588 -0.0128821732436576"
-      rpy="-2.57071455235077 0 1.5707963267949" />
-    <parent
-      link="base_rover_1" />
-    <child
-      link="wheel_1" />
-    <axis
-      xyz="1 0 0" />
-  </joint>
-  <link
-    name="wheel_2">
-    <inertial>
-      <origin
-        xyz="-0.063397 3.9968E-15 9.253E-10"
-        rpy="0 0 0" />
-      <mass
-        value="6.4993" />
-      <inertia
-        ixx="0.062324"
+
+
+
+<m_wheel_joint name="joint_w1" origin_xyz="0.373705519949924 -0.333276944984588 -0.0128821732436576" origin_rpy="-2.57071455235077 0 1.5707963267949" child="wheel_1" axis="1 0 0"/>
+  
+<m_wheel_link name="wheel_2" origin_xyz="-0.063397 3.9968E-15 9.253E-10" ixx="0.062324"
         ixy="-1.1644E-06"
         ixz="-6.9654E-10"
         iyy="0.037901"
         iyz="1.6994E-14"
         izz="0.037901" />
-    </inertial>
-    <visual>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://full_rover_assembly_urdf/meshes/wheel_2.STL" />
-      </geometry>
-      <material
-        name="">
-        <color
-          rgba="0.79216 0.81961 0.93333 1" />
-      </material>
-    </visual>
-    <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://full_rover_assembly_urdf/meshes/wheel_2.STL" />
-      </geometry>
-            <surface>
-        <bounce>
-          <restitution_coefficient>0.1</restitution_coefficient>
-          <threshold>0</threshold>
-        </bounce>
-        <contact>
-          <ode>
-            <max_vel>0.2</max_vel>
-          </ode>
-        </contact>
-      </surface>
-    </collision>
-  </link>
-  <joint
-    name="joint_w2"
-    type="continuous">
-    <origin
-      xyz="-0.0882727119071309 -0.333276944984562 -0.0481207258492364"
-      rpy="-0.0485724166465315 0 1.57079632750354" />
-    <parent
-      link="base_rover_1" />
-    <child
-      link="wheel_2" />
-    <axis
-      xyz="1 0 0" />
-  </joint>
-  <link
-    name="wheel_3">
-    <inertial>
-      <origin
-        xyz="-0.063397 1.9467E-13 -1.3256E-13"
-        rpy="0 0 0" />
-      <mass
-        value="6.4993" />
-      <inertia
-        ixx="0.062324"
+
+
+
+<m_wheel_joint name="joint_w2" origin_xyz="-0.0882727119071309 -0.333276944984562 -0.0481207258492364" origin_rpy="-0.0485724166465315 0 1.57079632750354" child="wheel_2" axis="1 0 0"/>
+
+<m_wheel_link name="wheel_3" origin_xyz="-0.063397 1.9467E-13 -1.3256E-13" ixx="0.062324"
         ixy="-1.1644E-06"
         ixz="-3.4009E-10"
         iyy="0.037901"
         iyz="2.1249E-20"
         izz="0.037901" />
-    </inertial>
-    <visual>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://full_rover_assembly_urdf/meshes/wheel_3.STL" />
-      </geometry>
-      <material
-        name="">
-        <color
-          rgba="0.79216 0.81961 0.93333 1" />
-      </material>
-    </visual>
-    <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://full_rover_assembly_urdf/meshes/wheel_3.STL" />
-      </geometry>
 
-            <surface>
-        <bounce>
-          <restitution_coefficient>0.1</restitution_coefficient>
-          <threshold>0</threshold>
-        </bounce>
-        <contact>
-          <ode>
-            <max_vel>0.2</max_vel>
-          </ode>
-        </contact>
-      </surface>
-    </collision>
-  </link>
-  <joint
-    name="joint_w3"
-    type="continuous">
-    <origin
-      xyz="-0.441256611089257 -0.333276944984561 -0.0514922118987491"
-      rpy="1.5707963267949 0 1.5707963267949" />
-    <parent
-      link="base_rover_1" />
-    <child
-      link="wheel_3" />
-    <axis
-      xyz="1 0 0" />
-  </joint>
-  <link
-    name="wheel_4">
-    <inertial>
-      <origin
-        xyz="0.060603 -1.3294E-13 -3.9635E-14"
-        rpy="0 0 0" />
-      <mass
-        value="6.4993" />
-      <inertia
-        ixx="0.062324"
+
+<m_wheel_joint name="joint_w3" origin_xyz="-0.441256611089257 -0.333276944984561 -0.0514922118987491" origin_rpy="1.5707963267949 0 1.5707963267949" child="wheel_3" axis="1 0 0"/>
+
+<m_wheel_link name="wheel_4" origin_xyz="0.060603 -1.3294E-13 -3.9635E-14" ixx="0.062324"
         ixy="8.2245E-07"
         ixz="8.2424E-07"
         iyy="0.037901"
         iyz="-2.6021E-18"
         izz="0.037901" />
-    </inertial>
-    <visual>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://full_rover_assembly_urdf/meshes/wheel_4.STL" />
-      </geometry>
-      <material
-        name="">
-        <color
-          rgba="0.79216 0.81961 0.93333 1" />
-      </material>
-    </visual>
-    <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://full_rover_assembly_urdf/meshes/wheel_4.STL" />
-      </geometry>
 
-            <surface>
-        <bounce>
-          <restitution_coefficient>0.1</restitution_coefficient>
-          <threshold>0</threshold>
-        </bounce>
-        <contact>
-          <ode>
-            <max_vel>0.2</max_vel>
-          </ode>
-        </contact>
-      </surface>
-    </collision>
-  </link>
-  <joint
-    name="joint_w4"
-    type="continuous">
-    <origin
-      xyz="0.349142456408795 -1.29967694498458 -0.0366791162624158"
-      rpy="-1.96389113722142 0 -1.5707963267949" />
-    <parent
-      link="base_rover_1" />
-    <child
-      link="wheel_4" />
-    <axis
-      xyz="-1 0 0" />
-  </joint>
-  <link
-    name="wheel_5">
-    <inertial>
-      <origin
-        xyz="0.060603 2.1788E-14 1.6598E-14"
-        rpy="0 0 0" />
-      <mass
-        value="6.4993" />
-      <inertia
-        ixx="0.062324"
+  <m_wheel_joint name="joint_w4" origin_xyz="0.349142456408795 -1.29967694498458 -0.0366791162624158" origin_rpy="-1.96389113722142 0 -1.5707963267949" child="wheel_4" axis="-1 0 0"/>
+
+
+  <m_wheel_link name="wheel_5" origin_xyz="0.060603 2.1788E-14 1.6598E-14" ixx="0.062324"
         ixy="8.2245E-07"
         ixz="8.2424E-07"
         iyy="0.037901"
         iyz="-8.6736E-19"
         izz="0.037901" />
-    </inertial>
-    <visual>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://full_rover_assembly_urdf/meshes/wheel_5.STL" />
-      </geometry>
-      <material
-        name="">
-        <color
-          rgba="0.79216 0.81961 0.93333 1" />
-      </material>
-    </visual>
-    <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://full_rover_assembly_urdf/meshes/wheel_5.STL" />
-      </geometry>
-            <surface>
-        <bounce>
-          <restitution_coefficient>0.1</restitution_coefficient>
-          <threshold>0</threshold>
-        </bounce>
-        <contact>
-          <ode>
-            <max_vel>0.2</max_vel>
-          </ode>
-        </contact>
-      </surface>
-    </collision>
-  </link>
-  <joint
-    name="joint_w5"
-    type="continuous">
-    <origin
-      xyz="-0.0856865365698763 -1.29967694498458 -0.00527252429838212"
-      rpy="-1.96389113722143 0 -1.5707963267949" />
-    <parent
-      link="base_rover_1" />
-    <child
-      link="wheel_5" />
-    <axis
-      xyz="-1 0 0" />
-  </joint>
-  <link
-    name="wheel_6">
-    <inertial>
-      <origin
-        xyz="0.060603 1.4413E-13 8.2656E-14"
-        rpy="0 0 0" />
-      <mass
-        value="6.4993" />
-      <inertia
-        ixx="0.062324"
+
+<m_wheel_joint name="joint_w5" origin_xyz="-0.0856865365698763 -1.29967694498458 -0.00527252429838212" origin_rpy="-1.96389113722143 0 -1.5707963267949" child="wheel_5" axis="-1 0 0"/>
+
+
+
+  <m_wheel_link name="wheel_6" origin_xyz="0.060603 1.4413E-13 8.2656E-14" ixx="0.062324"
         ixy="8.2245E-07"
         ixz="8.2424E-07"
         iyy="0.037901"
         iyz="-3.4694E-18"
         izz="0.037901" />
-    </inertial>
-    <visual>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://full_rover_assembly_urdf/meshes/wheel_6.STL" />
-      </geometry>
-      <material
-        name="">
-        <color
-          rgba="0.79216 0.81961 0.93333 1" />
-      </material>
-    </visual>
-    <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://full_rover_assembly_urdf/meshes/wheel_6.STL" />
-      </geometry>
-            <surface>
-        <bounce>
-          <restitution_coefficient>0.1</restitution_coefficient>
-          <threshold>0</threshold>
-        </bounce>
-        <contact>
-          <ode>
-            <max_vel>0.2</max_vel>
-          </ode>
-        </contact>
-      </surface>
-    </collision>
-  </link>
-  <joint
-    name="joint_w6"
-    type="continuous">
-    <origin
-      xyz="-0.436966864880414 -1.29967694498458 -0.0400738309123618"
-      rpy="-1.96389113722143 0 -1.5707963267949" />
-    <parent
-      link="base_rover_1" />
-    <child
-      link="wheel_6" />
-    <axis
-      xyz="-1 0 0" />
-  </joint>
 
-   <transmission name="$wheel1_trans">
-    <type>transmission_interface/SimpleTransmission</type>
-      <actuator name="$wheel1_motor">
-        <hardwareInterface>EffortJointInterface</hardwareInterface>
-        <mechanicalReduction>1</mechanicalReduction>
-      </actuator>
-      <joint name="joint_w1">
-        <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
-      </joint>
-  </transmission>
+  <m_wheel_joint name="joint_w6" origin_xyz="-0.436966864880414 -1.29967694498458 -0.0400738309123618" origin_rpy="-1.96389113722143 0 -1.5707963267949" child="wheel_6" axis="-1 0 0"/>
 
-     <transmission name="$wheel2_trans">
-    <type>transmission_interface/SimpleTransmission</type>
-      <actuator name="$wheel2_motor">
-        <hardwareInterface>EffortJointInterface</hardwareInterface>
-        <mechanicalReduction>1</mechanicalReduction>
-      </actuator>
-      <joint name="joint_w2">
-        <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
-      </joint>
-  </transmission>
 
-     <transmission name="$wheel3_trans">
-    <type>transmission_interface/SimpleTransmission</type>
-      <actuator name="$wheel3_motor">
-        <hardwareInterface>EffortJointInterface</hardwareInterface>
-        <mechanicalReduction>1</mechanicalReduction>
-      </actuator>
-      <joint name="joint_w3">
-        <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
-      </joint>
-  </transmission>
+<m_wheel_transmission trans_name="$wheel1_trans" actuator_name="$wheel1_motor" joint_name="joint_w1"/>
+<m_wheel_transmission trans_name="$wheel2_trans" actuator_name="$wheel2_motor" joint_name="joint_w2"/>
+<m_wheel_transmission trans_name="$wheel3_trans" actuator_name="$wheel3_motor" joint_name="joint_w3"/>
+<m_wheel_transmission trans_name="$wheel4_trans" actuator_name="$wheel4_motor" joint_name="joint_w4"/>
+<m_wheel_transmission trans_name="$wheel5_trans" actuator_name="$wheel5_motor" joint_name="joint_w5"/>
+<m_wheel_transmission trans_name="$wheel6_trans" actuator_name="$wheel6_motor" joint_name="joint_w6"/>
 
-     <transmission name="$wheel4_trans">
-    <type>transmission_interface/SimpleTransmission</type>
-      <actuator name="$wheel4_motor">
-        <hardwareInterface>EffortJointInterface</hardwareInterface>
-        <mechanicalReduction>1</mechanicalReduction>
-      </actuator>
-      <joint name="joint_w4">
-        <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
-      </joint>
-  </transmission>
-
-     <transmission name="$wheel5_trans">
-    <type>transmission_interface/SimpleTransmission</type>
-      <actuator name="$wheel5_motor">
-        <hardwareInterface>EffortJointInterface</hardwareInterface>
-        <mechanicalReduction>1</mechanicalReduction>
-      </actuator>
-      <joint name="joint_w5">
-        <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
-      </joint>
-  </transmission>
-
-     <transmission name="$wheel6_trans">
-    <type>transmission_interface/SimpleTransmission</type>
-      <actuator name="$wheel6_motor">
-        <hardwareInterface>EffortJointInterface</hardwareInterface>
-        <mechanicalReduction>1</mechanicalReduction>
-      </actuator>
-      <joint name="joint_w6">
-        <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
-      </joint>
-  </transmission>
 
 <!-- IMU implementation -->
 <link name="imu_link">
