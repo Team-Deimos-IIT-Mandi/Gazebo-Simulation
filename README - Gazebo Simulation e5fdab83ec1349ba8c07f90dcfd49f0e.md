@@ -1,4 +1,4 @@
-# README - Gazebo Simulation
+# README
 
 This repository is maintained by IIT Mandi Mars Rover Team: Team Deimos. The goal is to simulate all the missions of the University Rover Challenge. The team has started this on Gazebo and might move to IssacSim in the future.
 
